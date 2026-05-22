@@ -13,9 +13,7 @@
 
 <meta name="canonical" content="https://yourdomain.com/">
 <link rel="canonical" href="https://yourdomain.com/">
-
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-
 <meta name="author" content="Quotex Trading Pakistan">
 
 <meta property="og:type" content="website">
@@ -168,7 +166,7 @@
     100% { transform: scale(1.15) translate(3%, 3%); }
   }
 
-  /* NAV */
+  /* NAV - FIXED LOGO SHRINK HERE */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
@@ -177,12 +175,17 @@
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
-  .logo { display: flex; align-items: center; text-decoration: none; }
-  .logo-icon {
-    width: 40px; height: 40px; background: var(--blue); border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: #fff;
-    box-shadow: 0 0 20px rgba(0,148,255,0.4);
+  .logo { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    flex-shrink: 0; 
+  }
+  .logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
   .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
   .nav-links a {
@@ -190,7 +193,7 @@
     font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s;
   }
   .nav-links a:hover { color: #fff; }
-  .nav-actions { display: flex; gap: 12px; align-items: center; }
+  .nav-actions { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
   .btn-signup {
     padding: 10px 22px; background: var(--blue); color: #fff;
     font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;
@@ -205,7 +208,7 @@
   }
   .btn-login:hover { background: rgba(0,148,255,0.1); }
 
-  /* HERO - FLEX LAYOUT FOR RESPONSIVENESS */
+  /* HERO */
   .hero {
     position: relative; 
     min-height: 100vh;
@@ -805,6 +808,7 @@
     // Close all
     document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
     document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+    document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
     document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
     // Open clicked if was closed
     if (!isOpen) {
