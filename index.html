@@ -205,13 +205,21 @@
   }
   .btn-login:hover { background: rgba(0,148,255,0.1); }
 
-  /* HERO */
+  /* HERO - FLEX LAYOUT FOR RESPONSIVENESS */
   .hero {
-    position: relative; min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 120px 48px 80px; z-index: 1; overflow: hidden;
+    position: relative; 
+    min-height: 100vh;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 120px 48px 80px; 
+    z-index: 1; 
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
   }
-  .hero-content { max-width: 560px; animation: slideUp 0.8s ease both; }
+  .hero-content { width: 45%; max-width: 560px; flex-shrink: 0; animation: slideUp 0.8s ease both; }
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -232,7 +240,7 @@
     50% { opacity:0.5; transform:scale(1.5); }
   }
   .hero h1 {
-    font-size: 58px; font-weight: 800; line-height: 1.08; margin-bottom: 20px;
+    font-size: 54px; font-weight: 800; line-height: 1.1; margin-bottom: 20px;
     background: linear-gradient(135deg, #fff 0%, #a5bdd9 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
@@ -240,7 +248,7 @@
     background: linear-gradient(135deg, var(--blue), var(--green));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
-  .hero p { font-size: 18px; line-height: 1.7; color: var(--text-muted); margin-bottom: 40px; }
+  .hero p { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin-bottom: 40px; }
   .hero p strong { color: #fff; font-weight: 600; }
   .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
@@ -259,15 +267,28 @@
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 
+  /* HERO VISUAL CONTAINER */
   .hero-visual {
-    position: absolute; right: 48px; top: 50%; transform: translateY(-50%);
-    width: 580px; animation: slideUp 0.8s 0.2s ease both;
+    position: relative;
+    width: 55%;
+    max-width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideUp 0.8s 0.2s ease both;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
   }
   .floating-badge {
-    position: absolute; bottom: 20px; left: -24px;
+    position: absolute; bottom: 30px; left: 10px;
     background: var(--bg-card2); border: 1px solid var(--border); border-radius: 12px;
     padding: 12px 20px; display: flex; align-items: center; gap: 12px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
     animation: floatBadge 3s ease-in-out infinite;
     z-index: 10;
   }
@@ -343,7 +364,7 @@
   .step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
   .step-card p { font-size: 14px; line-height: 1.7; color: var(--text-muted); }
 
-  /* FAQ SECTION - NEW for SEO */
+  /* FAQ SECTION */
   .faq-section {
     position: relative; z-index: 1; padding: 100px 48px;
     background: rgba(26,31,53,0.3);
@@ -405,14 +426,19 @@
   .footer-bottom p { font-size: 12px; color: var(--text-dim); }
   .risk-warn { max-width: 600px; font-size: 10px; line-height: 1.6; color: var(--text-dim); }
 
-  /* RESPONSIVE */
-  @media (max-width: 1100px) { .hero-visual { width: 440px; right: 24px; } .hero h1 { font-size: 44px; } }
+  /* RESPONSIVE STYLING */
+  @media (max-width: 1100px) { 
+    .hero h1 { font-size: 40px; } 
+    .hero-visual { max-width: 500px; }
+  }
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; flex-direction: column; min-height: auto; }
-    .hero-visual { position: relative; right: auto; top: auto; transform: none; width: 100%; margin-top: 48px; }
-    .hero h1 { font-size: 36px; }
+    .hero { padding: 120px 24px 60px; flex-direction: column; min-height: auto; text-align: center; justify-content: center; }
+    .hero-content { width: 100%; max-width: 100%; margin-bottom: 20px; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { width: 100%; max-width: 500px; margin: 20px auto 0; }
+    .floating-badge { left: 50%; transform: translateX(-50%); bottom: 20px; }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .steps-grid { grid-template-columns: 1fr; }
@@ -420,7 +446,7 @@
     .seo-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .hero h1 { font-size: 28px; }
+    .hero h1 { font-size: 32px; }
     .hero-btns { flex-direction: column; }
     .features-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
@@ -463,7 +489,7 @@
   </div>
 
   <div class="hero-visual" aria-hidden="true">
-    <img src="sideimage.png" alt="Quotex Trading Platform Pakistan Mockup" style="width: 100%; height: auto; max-width: 100%; display: block; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.4));">
+    <img src="sideimage.webp" alt="Quotex Trading Platform Pakistan Mockup">
     <div class="floating-badge">
       <div class="badge-dot"></div>
       <div>
@@ -755,7 +781,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>© 2025 Quotex Pakistan (Unofficial Guide). All rights reserved.</p>
+    <p>© 2026 Quotex Pakistan (Unofficial Guide). All rights reserved.</p>
     <p class="risk-warn">⚠️ Risk Warning: Trading digital options involves significant risk of loss and is not suitable for all investors. Past performance is not indicative of future results. Only trade with money you can afford to lose. This is an unofficial affiliate website, not the official Quotex platform.</p>
   </div>
 </footer>
@@ -811,6 +837,15 @@
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+
+  // Live price simulation
+  let price = 1.08542;
+  setInterval(() => {
+    price += (Math.random() - 0.5) * 0.0008;
+    price = Math.max(1.07, Math.min(1.10, price));
+    const el = document.getElementById('livePrice');
+    if (el) el.textContent = price.toFixed(5);
+  }, 1500);
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
